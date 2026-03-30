@@ -12,22 +12,28 @@
   --bg: #faf8f5; --surface: #ffffff; --surface2: #f4f1ec; --border: #e8e2d9;
   --text: #1a1a18; --text2: #5c574f; --text3: #9c968c;
   --accent: #8b6f47; --accent2: #c4956a; --accent-light: #f5ede2;
-  --sidebar-w: 220px; --header-h: 64px;
+  --sidebar-w: 240px; --header-h: 60px;
   --green: #4a7c59; --green-light: #e8f2ec; --blue: #3d6b8c; --blue-light: #e8eff5;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.8; min-height: 100vh; }
+body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.8; min-height: 100vh; overflow-x: hidden; }
 
-.header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 24px; z-index: 100; box-shadow: 0 1px 8px rgba(0,0,0,.04); }
+/* ─── 头部导航 ─── */
+.header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 16px; gap: 16px; z-index: 100; box-shadow: 0 1px 8px rgba(0,0,0,.04); }
+
+.menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--text); cursor: pointer; padding: 4px; border-radius: 4px; }
+.menu-btn:hover { background: var(--surface2); }
+
 .brand { font-family: 'Noto Serif SC', serif; font-weight: 700; font-size: 17px; color: var(--accent); white-space: nowrap; letter-spacing: .03em; }
 .brand span { color: var(--text3); font-weight: 400; font-size: 13px; margin-left: 6px; }
 
-.search-wrap { flex: 1; max-width: 520px; position: relative; }
-.search-wrap input { width: 100%; padding: 9px 40px 9px 16px; border: 1.5px solid var(--border); border-radius: 24px; background: var(--surface2); font-family: inherit; font-size: 13px; color: var(--text); outline: none; transition: border-color .2s, background .2s; }
+/* 搜索框 */
+.search-wrap { flex: 1; max-width: 600px; position: relative; margin-left: auto; }
+.search-wrap input { width: 100%; padding: 8px 36px 8px 16px; border: 1.5px solid var(--border); border-radius: 20px; background: var(--surface2); font-family: inherit; font-size: 13px; color: var(--text); outline: none; transition: border-color .2s, background .2s; }
 .search-wrap input:focus { border-color: var(--accent2); background: #fff; }
-.search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text3); pointer-events: none; }
-.search-results { display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,.1); max-height: 360px; overflow-y: auto; z-index: 200; }
+.search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text3); pointer-events: none; }
+.search-results { display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,.1); max-height: 60vh; overflow-y: auto; z-index: 200; }
 .search-results.show { display: block; }
 .search-item { padding: 10px 16px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background .15s; }
 .search-item:hover { background: var(--accent-light); }
@@ -35,10 +41,16 @@ body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: va
 .search-item-desc { font-size: 12px; color: var(--text3); margin-top: 2px; }
 .search-item-tag { font-size: 11px; color: var(--accent); background: var(--accent-light); padding: 1px 6px; border-radius: 4px; float: right; }
 
-.layout { display: flex; margin-top: var(--header-h); min-height: calc(100vh - var(--header-h)); }
-.sidebar { width: var(--sidebar-w); flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); position: fixed; top: var(--header-h); bottom: 0; left: 0; overflow-y: auto; padding: 16px 0; }
-.main { margin-left: var(--sidebar-w); flex: 1; padding: 32px 36px; max-width: 860px; }
+/* ─── 布局主体 ─── */
+.layout { display: flex; margin-top: var(--header-h); min-height: calc(100vh - var(--header-h)); width: 100%; }
 
+/* 侧边栏遮罩（移动端用） */
+.sidebar-overlay { display: none; position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 80; backdrop-filter: blur(2px); }
+
+/* 左侧菜单 */
+.sidebar { width: var(--sidebar-w); flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--border); position: fixed; top: var(--header-h); bottom: 0; left: 0; overflow-y: auto; padding: 16px 0; z-index: 90; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* 菜单项样式 */
 .sidebar-section { margin-bottom: 4px; }
 .sidebar-tab { display: flex; align-items: center; gap: 10px; padding: 10px 20px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text2); border-left: 3px solid transparent; transition: all .18s; user-select: none; }
 .sidebar-tab:hover { background: var(--surface2); color: var(--text); }
@@ -48,69 +60,114 @@ body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: va
 .sidebar-tab.open .arrow { transform: rotate(90deg); }
 .sidebar-sub { display: none; background: var(--surface2); border-bottom: 1px solid var(--border); }
 .sidebar-sub.open { display: block; }
-.sidebar-sub-item { padding: 8px 20px 8px 44px; font-size: 13px; color: var(--text2); cursor: pointer; transition: all .15s; border-left: 3px solid transparent; display: flex; align-items: center; gap: 6px; }
+.sidebar-sub-item { padding: 8px 16px 8px 44px; font-size: 13px; color: var(--text2); cursor: pointer; transition: all .15s; border-left: 3px solid transparent; display: flex; align-items: center; gap: 6px; }
 .sidebar-sub-item:hover { background: var(--accent-light); color: var(--accent); }
 .sidebar-sub-item.active { color: var(--accent); border-left-color: var(--accent2); font-weight: 500; }
 
+/* ─── 内容区域 ─── */
+.main { margin-left: var(--sidebar-w); flex: 1; padding: 24px 32px; width: calc(100% - var(--sidebar-w)); transition: margin-left 0.3s, width 0.3s; }
+
 .panel { display: none; }
-.panel.active { display: block; }
-.panel-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-.panel-sub { font-size: 13px; color: var(--text3); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
-.content-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 16px; }
-.content-card h3 { font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
+.panel-title { font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.panel-sub { font-size: 13px; color: var(--text3); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.content-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; width: 100%; box-shadow: 0 1px 4px rgba(0,0,0,.02); }
+.content-card h3 { font-family: 'Noto Serif SC', serif; font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+/* 图片排版 */
 .content-img { max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0; border: 1px solid var(--border); display: block; }
-.img-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
-.img-row img { margin: 0; flex: 1; min-width: 200px; }
+.img-row { display: flex; gap: 12px; margin: 12px 0; }
+.img-row img { margin: 0; flex: 1; width: 100%; min-width: 0; object-fit: contain; }
 
-.info-grid { display: grid; grid-template-columns: 130px 1fr; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+/* 表格与网格 */
+.info-grid { display: grid; grid-template-columns: 140px 1fr; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
 .info-grid-row { display: contents; }
-.info-grid-row > div { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
+.info-grid-row > div { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px; line-height: 1.6; }
 .info-grid-row:last-child > div { border-bottom: none; }
 .info-grid-row > div:first-child { background: var(--surface2); font-weight: 500; color: var(--text2); border-right: 1px solid var(--border); }
 .info-grid-row > div:last-child { background: var(--surface); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-bottom: 28px; }
-.product-card { padding: 14px 16px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; transition: all .18s; text-align: center; }
-.product-card:hover { border-color: var(--accent2); background: var(--accent-light); }
-.product-card .p-icon { font-size: 24px; margin-bottom: 4px; }
-.product-card .p-name { font-size: 12px; font-weight: 500; color: var(--text); }
-.product-card .p-price { font-size: 12px; color: var(--accent2); margin-top: 2px; }
 
-.qa-item { margin-bottom: 16px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
-.qa-q { font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; gap: 8px; align-items: flex-start; }
-.qa-q::before { content: 'Q'; background: var(--accent); color: #fff; border-radius: 4px; font-size: 11px; font-weight: 700; padding: 1px 5px; flex-shrink: 0; margin-top: 2px; }
-.qa-a { color: var(--text2); padding-left: 22px; font-size: 13px; }
+/* 产品卡片 (去掉图标后优化样式) */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.product-card { padding: 24px 16px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; transition: all .15s; text-align: center; }
+.product-card:hover { border-color: var(--accent2); background: var(--accent-light); transform: translateY(-2px); }
+.product-card .p-name { font-size: 15px; font-weight: 600; color: var(--text); }
+.product-card .p-price { font-size: 13px; color: var(--accent2); margin-top: 6px; }
+
+/* 问答列表 */
+.qa-item { margin-bottom: 16px; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.qa-q { font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 8px; display: flex; gap: 8px; align-items: flex-start; }
+.qa-q::before { content: 'Q'; background: var(--accent); color: #fff; border-radius: 4px; font-size: 12px; font-weight: 700; padding: 2px 6px; flex-shrink: 0; margin-top: 1px; }
+.qa-a { color: var(--text2); padding-left: 26px; font-size: 13px; }
 .qa-a::before { content: 'A：'; font-weight: 500; color: var(--green); }
 
-.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-bottom: 12px;}
-.badge-amber { background: #fef3c7; color: #92400e; }
+/* 标签与提示 */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-bottom: 12px;}
 .badge-green { background: var(--green-light); color: var(--green); }
 .badge-blue { background: var(--blue-light); color: var(--blue); }
-.notice { background: var(--blue-light); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--blue); margin: 12px 0; }
-.warn { background: #fff3e0; border-left: 3px solid #e65100; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: #bf360c; margin: 12px 0; }
+.notice { background: var(--blue-light); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 13px; color: var(--blue); margin: 12px 0; }
+.warn { background: #fff3e0; border-left: 3px solid #e65100; border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 13px; color: #bf360c; margin: 12px 0; }
 .empty-panel { text-align: center; padding: 80px 20px; color: var(--text3); }
 .empty-panel .big { font-size: 48px; margin-bottom: 12px; }
-.product-tabs { display: flex; gap: 4px; margin-bottom: 24px; background: var(--surface2); border-radius: 10px; padding: 4px; width: fit-content; }
-.product-tab-btn { padding: 7px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--text2); transition: all .18s; border: none; background: transparent; font-family: inherit; }
-.product-tab-btn.active { background: var(--surface); color: var(--accent); box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+
+/* 详情页 Tabs */
+.product-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; background: var(--surface2); border-radius: 8px; padding: 6px; width: fit-content; }
+.product-tab-btn { padding: 8px 20px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--text2); transition: all .15s; border: none; background: transparent; font-family: inherit; }
+.product-tab-btn.active { background: var(--surface); color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
 .product-section { display: none; }
 .product-section.active { display: block; }
 ul, ol { padding-left: 20px; line-height: 2; }
+
+/* =========================================
+   响应式设计：手机与平板适配 (< 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  .menu-btn { display: block; }
+  .brand span { display: none; }
+  .search-wrap { max-width: 200px; }
+
+  .sidebar { transform: translateX(-100%); width: 260px; box-shadow: 2px 0 12px rgba(0,0,0,0.1); }
+  .sidebar.show { transform: translateX(0); }
+  .sidebar-overlay.show { display: block; }
+
+  .main { margin-left: 0; width: 100%; padding: 16px 12px; }
+  .content-card { padding: 16px; border-radius: 8px; }
+  .info-grid { grid-template-columns: 90px 1fr; }
+  .info-grid-row > div { padding: 8px 10px; font-size: 12px; }
+  
+  .img-row { flex-direction: column; gap: 8px; }
+  .img-row img { width: 100%; }
+
+  .qa-item { padding: 12px; }
+  .qa-a { padding-left: 0; margin-top: 6px; }
+
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .product-card { padding: 20px 12px; }
+}
 </style>
 </head>
 <body>
 
 <header class="header">
+  <button class="menu-btn" id="menuBtn" onclick="toggleSidebar()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </button>
+  
   <div class="brand">西尼优家居 <span>产品文档</span></div>
+  
   <div class="search-wrap">
-    <input type="text" id="searchInput" placeholder="搜索产品、问题、功能…" autocomplete="off">
-    <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="搜索产品、问题…" autocomplete="off">
+    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <div class="search-results" id="searchResults"></div>
   </div>
 </header>
 
 <div class="layout">
-  <aside class="sidebar">
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <aside class="sidebar" id="sidebar">
     <div class="sidebar-section">
       <div class="sidebar-tab" onclick="switchPanel('all', this)">
         <span class="icon">📋</span><span class="label">全部分类</span>
@@ -121,6 +178,7 @@ ul, ol { padding-left: 20px; line-height: 2; }
         <span class="icon">🛍️</span><span class="label">产品类型</span><span class="arrow">›</span>
       </div>
       <div class="sidebar-sub open" id="sub-products">
+        <div style="padding: 15px; font-size: 12px; color: #999;">载入中...</div>
       </div> 
     </div>
     <div class="sidebar-section">
@@ -128,15 +186,15 @@ ul, ol { padding-left: 20px; line-height: 2; }
         <span class="icon">💬</span><span class="label">问题场景</span><span class="arrow">›</span>
       </div>
       <div class="sidebar-sub open" id="sub-issues">
-        <div class="sidebar-sub-item" onclick="switchPanel('issue-presale', this)">🔧 产品使用（售前）</div>
-        <div class="sidebar-sub-item" onclick="switchPanel('issue-aftersale', this)">🔄 售后服务</div>
-        <div class="sidebar-sub-item" onclick="switchPanel('issue-buy', this)">🛒 购买帮助</div>
-        <div class="sidebar-sub-item" onclick="switchPanel('issue-vip', this)">⭐ 增值服务</div>
+        <div class="sidebar-sub-item" onclick="switchPanel('issue-presale', this)">产品使用（售前）</div>
+        <div class="sidebar-sub-item" onclick="switchPanel('issue-aftersale', this)">售后服务</div>
+        <div class="sidebar-sub-item" onclick="switchPanel('issue-buy', this)">购买帮助</div>
+        <div class="sidebar-sub-item" onclick="switchPanel('issue-vip', this)">增值服务</div>
       </div>
     </div>
   </aside>
 
-  <main class="main">
+  <main class="main" id="main">
     <div class="panel active" id="panel-all">
       <div class="panel-title">全部分类</div>
       <div class="panel-sub">西尼优家居香薰培训文档 · 快速导航</div>
@@ -180,7 +238,6 @@ ul, ol { padding-left: 20px; line-height: 2; }
 let SEARCH_INDEX = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 检查是否成功加载了 data.js
   if (typeof DATABASE !== 'undefined') {
     initApp();
   } else {
@@ -201,10 +258,24 @@ function initApp() {
   buildSearchIndex();
 }
 
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  sidebar.classList.toggle('show');
+  overlay.classList.toggle('show');
+}
+
+function closeSidebarOnMobile() {
+  if(window.innerWidth <= 768) {
+    document.getElementById('sidebar').classList.remove('show');
+    document.getElementById('sidebarOverlay').classList.remove('show');
+  }
+}
+
 function renderSidebar() {
   document.getElementById('sub-products').innerHTML = DATABASE.products.map(p => 
     `<div class="sidebar-sub-item" data-pid="${p.id}" onclick="selectProduct('${p.id}')">
-      ${p.icon} ${p.name}
+      ${p.name}
      </div>`
   ).join('');
 }
@@ -212,7 +283,6 @@ function renderSidebar() {
 function renderAllProductsGrid() {
   document.getElementById('all-products-grid').innerHTML = DATABASE.products.map(p => 
     `<div class="product-card" onclick="selectProduct('${p.id}')">
-      <div class="p-icon">${p.icon}</div>
       <div class="p-name">${p.name}</div>
       <div class="p-price">${p.price}</div>
     </div>`
@@ -235,9 +305,9 @@ function selectProduct(id) {
   const generateQA = (arr) => (!arr || arr.length === 0) ? '<div class="empty-panel"><div class="big">📋</div><p>暂无记录</p></div>' : arr.map(qa => `<div class="qa-item"><div class="qa-q">${qa.q}</div><div class="qa-a">${qa.a}</div></div>`).join('');
 
   document.getElementById('product-detail-container').innerHTML = `
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:16px;">
-      <span style="font-size:32px">${p.icon}</span>
-      <div><div class="panel-title">${p.name}</div><div style="font-size:13px;color:var(--text3)">${p.price}</div></div>
+    <div style="margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:16px;">
+      <div class="panel-title" style="margin-bottom:0">${p.name}</div>
+      <div style="font-size:13px;color:var(--text3);margin-top:6px;">${p.price}</div>
     </div>
     <div class="product-tabs">
       <button class="product-tab-btn active" onclick="switchProductTab('intro', this)">产品介绍</button>
@@ -268,8 +338,9 @@ function renderGlobalScenario(type, containerId) {
     if(p[dataKey] && p[dataKey].length > 0) {
       html += `
         <div class="content-card">
-          <h3 style="cursor:pointer" onclick="selectProduct('${p.id}')">
-            ${p.icon} ${p.name} <span style="font-size:12px;color:var(--text3);font-weight:400;margin-left:8px;">点击查看详情 &rarr;</span>
+          <h3 style="cursor:pointer; display:flex; justify-content:space-between; align-items:center;" onclick="selectProduct('${p.id}')">
+            <span>${p.name}</span>
+            <span style="font-size:12px;color:var(--text3);font-weight:400;">查看详情 &rarr;</span>
           </h3>
           ${p[dataKey].map(qa => `<div class="qa-item"><div class="qa-q">${qa.q}</div><div class="qa-a">${qa.a}</div></div>`).join('')}
         </div>
@@ -304,6 +375,9 @@ function switchPanel(panelId, el) {
     document.querySelectorAll('.sidebar-tab').forEach(e => e.classList.remove('active'));
     el.classList.add('active');
   }
+
+  closeSidebarOnMobile();
+  window.scrollTo(0, 0); 
 }
 
 function switchProductTab(tabId, btn) {
