@@ -233,170 +233,170 @@ const DATABASE ={
       ]
     },
 
-  //   {
-  //     "id": "xj2",
-  //     "name": "XJ2 融蜡灯",
-  //     "icon": "🕯️",
-  //     "price": "369元",
-  //     "info": [
-  //       ["香膏容量", "180ml"],
-  //       ["使用时长", "每天一小时，约90天"],
-  //       ["散香模式", "利用顶面氛围灯融化蜡烛散香"]
-  //     ],
-  //     "introBlocks": [
-  //       {
-  //         "title": "产品展示",
-  //         "html": "<img src='images/img_35.png' class='content-img' style='max-width:300px;'>"
-  //       },
-  //       {
-  //         "title": "香味选择",
-  //         "html": "<b>【虞美人与大麦】</b><br><b>【邂逅玫瑰】花香调</b><br><b>【绿野仙踪】绿叶茶香调</b>"
-  //       }
-  //     ],
-  //     "presaleQA": [
-  //       { "q": "香膏能用多久？", "a": "180ml容量，每天用一小时约90天，融蜡灯消耗慢，耐用。" },
-  //       { "q": "数据线有多长？", "a": "USB-A/TYPE-C，线长1.5m。" },
-  //       { "q": "需要插电使用吗？", "a": "是的，无明火设计更安全，适合有小孩宠物的家庭。" },
-  //       { "q": "定时最长多久？", "a": "最长可以定5小时。" }
-  //     ],
-  //     "aftersaleQA": []
-  //   },
+    {
+      "id": "xj2",
+      "name": "XJ2 融蜡灯",
+      "icon": "🕯️",
+      "price": "369元",
+      "info": [
+        ["香膏容量", "180ml"],
+        ["使用时长", "每天一小时，约90天"],
+        ["散香模式", "利用顶面氛围灯融化蜡烛散香"]
+      ],
+      "introBlocks": [
+        {
+          "title": "产品展示",
+          "html": "<img src='images/img_35.png' class='content-img' style='max-width:300px;'>"
+        },
+        {
+          "title": "香味选择",
+          "html": "<b>【虞美人与大麦】</b><br><b>【邂逅玫瑰】花香调</b><br><b>【绿野仙踪】绿叶茶香调</b>"
+        }
+      ],
+      "presaleQA": [
+        { "q": "香膏能用多久？", "a": "180ml容量，每天用一小时约90天，融蜡灯消耗慢，耐用。" },
+        { "q": "数据线有多长？", "a": "USB-A/TYPE-C，线长1.5m。" },
+        { "q": "需要插电使用吗？", "a": "是的，无明火设计更安全，适合有小孩宠物的家庭。" },
+        { "q": "定时最长多久？", "a": "最长可以定5小时。" }
+      ],
+      "aftersaleQA": []
+    },
 
-  //   {
-  //     "id": "xj3",
-  //     "name": "XJ3 香薰机",
-  //     "icon": "💨",
-  //     "price": "586元",
-  //     "info": [
-  //       ["使用时长", "150天左右（1小时淡香计算）"],
-  //       ["散香模式", "喷雾散香。06淡香，07中香，08浓香"]
-  //     ],
-  //     "introBlocks": [
-  //       {
-  //         "title": "产品展示",
-  //         "html": "<img src='images/img_36.png' class='content-img' style='max-width:300px;'>"
-  //       }
-  //     ],
-  //     "presaleQA": [
-  //       { "q": "如何更换精油？", "a": "扭出旧精油瓶 -> 拔开雾化头处棉棒 -> 插入新棉棒到底 -> 扭入新精油。" },
-  //       { "q": "香薰机可以放入水杯架吗？", "a": "可以，直径7厘米，满足大部分车型。" },
-  //       { "q": "在车上高温安全吗？", "a": "有过热保护自动关机。但避免阳光长期暴晒导致精油快速消耗。" },
-  //       { "q": "设备有噪音吗？", "a": "采用新型SFAS雾化技术，只有15分贝，几乎无声。" }
-  //     ],
-  //     "aftersaleQA": []
-  //   },
+    {
+      "id": "xj3",
+      "name": "XJ3 香薰机",
+      "icon": "💨",
+      "price": "586元",
+      "info": [
+        ["使用时长", "150天左右（1小时淡香计算）"],
+        ["散香模式", "喷雾散香。06淡香，07中香，08浓香"]
+      ],
+      "introBlocks": [
+        {
+          "title": "产品展示",
+          "html": "<img src='images/img_36.png' class='content-img' style='max-width:300px;'>"
+        }
+      ],
+      "presaleQA": [
+        { "q": "如何更换精油？", "a": "扭出旧精油瓶 -> 拔开雾化头处棉棒 -> 插入新棉棒到底 -> 扭入新精油。" },
+        { "q": "香薰机可以放入水杯架吗？", "a": "可以，直径7厘米，满足大部分车型。" },
+        { "q": "在车上高温安全吗？", "a": "有过热保护自动关机。但避免阳光长期暴晒导致精油快速消耗。" },
+        { "q": "设备有噪音吗？", "a": "采用新型SFAS雾化技术，只有15分贝，几乎无声。" }
+      ],
+      "aftersaleQA": []
+    },
 
-  //   {
-  //     "id": "xz1",
-  //     "name": "XZ1 智控蜡烛",
-  //     "icon": "🕯️",
-  //     "price": "499元",
-  //     "info": [
-  //       ["香料", "天然白蜂蜡，可用90天"],
-  //       ["散香模式", "按按钮开启蜡烛自动点燃"]
-  //     ],
-  //     "introBlocks": [
-  //       {
-  //         "title": "产品展示",
-  //         "html": "<img src='images/img_37.png' class='content-img' style='max-width:300px;'>"
-  //       },
-  //       {
-  //         "title": "产品卖点",
-  //         "html": "<ul><li>双子芯，一键【自动点燃】【定时熄灭】，安全性极高</li><li>具有倾倒报警和光感检测触发吹熄功能</li></ul>"
-  //       }
-  //     ],
-  //     "presaleQA": [],
-  //     "aftersaleQA": []
-  //   },
+    {
+      "id": "xz1",
+      "name": "XZ1 智控蜡烛",
+      "icon": "🕯️",
+      "price": "499元",
+      "info": [
+        ["香料", "天然白蜂蜡，可用90天"],
+        ["散香模式", "按按钮开启蜡烛自动点燃"]
+      ],
+      "introBlocks": [
+        {
+          "title": "产品展示",
+          "html": "<img src='images/img_37.png' class='content-img' style='max-width:300px;'>"
+        },
+        {
+          "title": "产品卖点",
+          "html": "<ul><li>双子芯，一键【自动点燃】【定时熄灭】，安全性极高</li><li>具有倾倒报警和光感检测触发吹熄功能</li></ul>"
+        }
+      ],
+      "presaleQA": [],
+      "aftersaleQA": []
+    },
 
-  //   {
-  //     "id": "yx1",
-  //     "name": "YX1 藤条香薰",
-  //     "icon": "🌸",
-  //     "price": "168元",
-  //     "info": [
-  //       ["香水容量", "150ml"],
-  //       ["使用时长", "插入3根藤条可用120-150天"],
-  //       ["散香模式", "藤条散香"]
-  //     ],
-  //     "introBlocks": [
-  //       {
-  //         "title": "产品展示",
-  //         "html": "<div class='img-row'><img src='images/img_38.png' class='content-img'><img src='images/img_39.png' class='content-img'></div>"
-  //       }
-  //     ],
-  //     "presaleQA": [
-  //       { "q": "怎么使用的？", "a": "打开后插入藤条散香，喜欢淡少插几根，喜欢浓多插几根。" },
-  //       { "q": "适用面积？", "a": "适用10-70平左右空间。" },
-  //       { "q": "香水有多少？", "a": "150ml持久飘香，一般建议插入3根最适宜。" },
-  //       { "q": "留香多久？", "a": "精油浓度比普通香薰提升10倍，留香可达365天。" }
-  //     ],
-  //     "aftersaleQA": []
-  //   },
+    {
+      "id": "yx1",
+      "name": "YX1 藤条香薰",
+      "icon": "🌸",
+      "price": "168元",
+      "info": [
+        ["香水容量", "150ml"],
+        ["使用时长", "插入3根藤条可用120-150天"],
+        ["散香模式", "藤条散香"]
+      ],
+      "introBlocks": [
+        {
+          "title": "产品展示",
+          "html": "<div class='img-row'><img src='images/img_38.png' class='content-img'><img src='images/img_39.png' class='content-img'></div>"
+        }
+      ],
+      "presaleQA": [
+        { "q": "怎么使用的？", "a": "打开后插入藤条散香，喜欢淡少插几根，喜欢浓多插几根。" },
+        { "q": "适用面积？", "a": "适用10-70平左右空间。" },
+        { "q": "香水有多少？", "a": "150ml持久飘香，一般建议插入3根最适宜。" },
+        { "q": "留香多久？", "a": "精油浓度比普通香薰提升10倍，留香可达365天。" }
+      ],
+      "aftersaleQA": []
+    },
 
-  //   {
-  //     "id": "yx4a",
-  //     "name": "YX4A（已下架）",
-  //     "icon": "📦",
-  //     "price": "198元",
-  //     "info": [
-  //       ["状态", "已下架，仅供参考"]
-  //     ],
-  //     "introBlocks": [
-  //       {
-  //         "title": "产品展示",
-  //         "html": "<div class='warn'>此产品已下架，仅供参考。</div><img src='images/img_40.png' class='content-img'>"
-  //       }
-  //     ],
-  //     "presaleQA": [],
-  //     "aftersaleQA": []
-  //   },
+    {
+      "id": "yx4a",
+      "name": "YX4A（已下架）",
+      "icon": "📦",
+      "price": "198元",
+      "info": [
+        ["状态", "已下架，仅供参考"]
+      ],
+      "introBlocks": [
+        {
+          "title": "产品展示",
+          "html": "<div class='warn'>此产品已下架，仅供参考。</div><img src='images/img_40.png' class='content-img'>"
+        }
+      ],
+      "presaleQA": [],
+      "aftersaleQA": []
+    },
 
-  //   {
-  //     "id": "yx5",
-  //     "name": "YX5 方瓶香薰",
-  //     "icon": "🍃",
-  //     "price": "198元",
-  //     "info": [
-  //       ["香水容量", "100ml"],
-  //       ["使用时长", "能用45-60天"],
-  //       ["散香模式", "柳枝藤条扩香"]
-  //     ],
-  //     "introBlocks": [
-  //       {
-  //         "title": "产品展示",
-  //         "html": "<img src='images/img_41.png' class='content-img' style='max-width:300px;'>"
-  //       }
-  //     ],
-  //     "presaleQA": [
-  //       { "q": "一瓶能用多久？", "a": "100ml，一般能用45-60天左右。" },
-  //       { "q": "怎么安装使用？", "a": "从底部打开外壳，拧下香薰瓶盖，取下硅胶塞再拧回去。装上外壳插入藤条。" },
-  //       { "q": "香水是天然的吗？", "a": "内含天然精油成分，法国自然香料公司罗伯特集团调香。" }
-  //     ],
-  //     "aftersaleQA": []
-  //   }
-  // ],
-  // "globalBuyInfo": [
-  //   {
-  //     "title": "🎁 关于送礼订单",
-  //     "html": "<div class='notice'>家居店里有个送礼页面，需正确引导下用户。</div>",
-  //     "qa": [
-  //       {
-  //         "q": "送礼订单流程",
-  //         "a": "<img src='images/img_42.jpg' class='content-img'>步骤：用户拍下 → 发分享链接给收礼人 → 收礼人确认 → 发货。<br><b style='color:red'>注意：用户拍下后不分享链接，订单24小时后自动取消。</b><div class='img-row'><img src='images/img_44.jpg' class='content-img'><img src='images/img_45.png' class='content-img'></div>"
-  //       },
-  //       {
-  //         "q": "送礼人如何查询物流信息？",
-  //         "a": "平台保护收礼人地址，小妹无法查到。建议让收礼的朋友打开京东APP查看我的收礼订单。"
-  //       },
-  //       {
-  //         "q": "售后或评价由谁发起？",
-  //         "a": "<img src='images/img_46.png' class='content-img' style='max-width: 400px;'>售后或评价由收礼人子单发起申请。"
-  //       },
-  //       {
-  //         "q": "如何开发票？",
-  //         "a": "由送礼人父单在后台申请开具即可。"
-  //       }
+    {
+      "id": "yx5",
+      "name": "YX5 方瓶香薰",
+      "icon": "🍃",
+      "price": "198元",
+      "info": [
+        ["香水容量", "100ml"],
+        ["使用时长", "能用45-60天"],
+        ["散香模式", "柳枝藤条扩香"]
+      ],
+      "introBlocks": [
+        {
+          "title": "产品展示",
+          "html": "<img src='images/img_41.png' class='content-img' style='max-width:300px;'>"
+        }
+      ],
+      "presaleQA": [
+        { "q": "一瓶能用多久？", "a": "100ml，一般能用45-60天左右。" },
+        { "q": "怎么安装使用？", "a": "从底部打开外壳，拧下香薰瓶盖，取下硅胶塞再拧回去。装上外壳插入藤条。" },
+        { "q": "香水是天然的吗？", "a": "内含天然精油成分，法国自然香料公司罗伯特集团调香。" }
+      ],
+      "aftersaleQA": []
+    }
+  ],
+  "globalBuyInfo": [
+    {
+      "title": "🎁 关于送礼订单",
+      "html": "<div class='notice'>家居店里有个送礼页面，需正确引导下用户。</div>",
+      "qa": [
+        {
+          "q": "送礼订单流程",
+          "a": "<img src='images/img_42.jpg' class='content-img'>步骤：用户拍下 → 发分享链接给收礼人 → 收礼人确认 → 发货。<br><b style='color:red'>注意：用户拍下后不分享链接，订单24小时后自动取消。</b><div class='img-row'><img src='images/img_44.jpg' class='content-img'><img src='images/img_45.png' class='content-img'></div>"
+        },
+        {
+          "q": "送礼人如何查询物流信息？",
+          "a": "平台保护收礼人地址，小妹无法查到。建议让收礼的朋友打开京东APP查看我的收礼订单。"
+        },
+        {
+          "q": "售后或评价由谁发起？",
+          "a": "<img src='images/img_46.png' class='content-img' style='max-width: 400px;'>售后或评价由收礼人子单发起申请。"
+        },
+        {
+          "q": "如何开发票？",
+          "a": "由送礼人父单在后台申请开具即可。"
+        }
       ]
     }
   ]
